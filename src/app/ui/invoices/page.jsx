@@ -6,9 +6,7 @@ import { lusitana } from '@/app/ui/fonts';
 import { Suspense } from 'react';
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 import { fetchInvoicesPages } from '@/app/lib/data';
-import dotenv from 'dotenv';
 
-dotenv.config();
 export default async function Page({ searchParams }) {
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
