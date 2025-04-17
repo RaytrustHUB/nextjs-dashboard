@@ -1,9 +1,7 @@
 import { sql } from '@vercel/postgres';
 import { formatCurrency } from './utils';
-import dotenv from 'dotenv';
 import { unstable_noStore as noStore } from 'next/cache';
 
-dotenv.config();
 export async function fetchRevenue() {
   noStore();
   try {
@@ -80,6 +78,7 @@ export async function fetchCardData() {
 
 const ITEMS_PER_PAGE = 6;
 export async function fetchFilteredInvoices(query, currentPage) {
+  noStore();
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {
