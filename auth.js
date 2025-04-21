@@ -11,7 +11,7 @@ dotenv.config();
 // Corrected SQL usage and string interpolation
 async function getUser(email) {
   try {
-    const sql = neon(process.env.DATABASE_URL);
+    const sql = neon(`${process.env.DATABASE_URL}`);
     const user = await sql`SELECT * FROM users WHERE email = ${email}`;
     return user[0]; // neon returns an array
   } catch (error) {

@@ -8,7 +8,7 @@ export const authConfig = {
       const isOnDashboard = nextUrl.pathname.startsWith('/ui');
       if (isOnDashboard) {
         if (isLoggedIn) return true;
-        return false;
+        return false; // Redirect unauthenticated users to the login page
       } else if (isLoggedIn) {
         return Response.redirect(new URL('/ui/dashboard', nextUrl));
       }
@@ -17,4 +17,3 @@ export const authConfig = {
   },
   providers: [], // Add providers with an empty array for now
 };
-export default authConfig;
